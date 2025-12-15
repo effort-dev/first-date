@@ -71,7 +71,7 @@
       }
 
       .page h1 {
-        font-size: 5rem;
+        font-size: clamp(2rem, 8vw, 5rem);
         margin-bottom: 30px;
         text-align: center;
         font-weight: 900;
@@ -83,7 +83,7 @@
       }
 
       .page p {
-        font-size: 2.2rem;
+        font-size: clamp(1rem, 3vw, 2.2rem);
         text-align: center;
         line-height: 1.8;
         max-width: 80%;
@@ -132,11 +132,11 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding-left: 10vw;
+        padding: 50px 5vw;
       }
 
       .page-2 h1 {
-        font-size: 3rem;
+        font-size: clamp(1.5rem, 5vw, 3rem);
         margin-bottom: 30px;
         text-align: center;
         font-weight: 500;
@@ -144,10 +144,10 @@
       }
 
       .page-2 p {
-        font-size: 1.2rem;
+        font-size: clamp(0.9rem, 2vw, 1.2rem);
         text-align: left;
         line-height: 1.8;
-        max-width: 80%;
+        max-width: 90%;
         font-weight: 400;
       }
 
@@ -161,13 +161,13 @@
         z-index: 1;
         display: flex;
         justify-content: center;
-        align-items: flex-end;
-        padding-left: 78vw;
+        align-items: center;
+        padding: 50px 5vw;
       }
 
       .page-3 p {
-        font-size: 1.2rem;
-        text-align: left;
+        font-size: clamp(0.9rem, 2vw, 1.2rem);
+        text-align: center;
         line-height: 1.8;
         max-width: 100%;
         font-weight: 400;
@@ -179,7 +179,7 @@
       }
 
       .emoji {
-        font-size: 6rem;
+        font-size: clamp(3rem, 10vw, 6rem);
         margin-bottom: 30px;
         animation: float 3s ease-in-out infinite;
       }
@@ -225,7 +225,7 @@
         font-family: "Playfair Display", serif;
         font-weight: 600;
         color: white;
-        font-size: 5rem;
+        font-size: clamp(2rem, 8vw, 5rem);
         position: relative;
         margin-bottom: 30px;
         text-align: center;
@@ -333,7 +333,7 @@
 
       .corner-img {
         position: fixed;
-        width: 10vw;
+        width: clamp(60px, 10vw, 120px);
         height: auto;
         pointer-events: none;
         z-index: 100;
@@ -342,15 +342,15 @@
       }
 
       .top-left {
-        top: -20px;
-        left: 40px;
+        top: clamp(-10px, -2vw, -20px);
+        left: clamp(20px, 5vw, 40px);
         transform: rotate(90deg);
         animation: jitter 0.1s infinite;
       }
 
       .bottom-right {
-        bottom: -20px;
-        right: 40px;
+        bottom: clamp(-10px, -2vw, -20px);
+        right: clamp(20px, 5vw, 40px);
         transform: rotate(-90deg);
         animation: jitter-reverse 0.1s infinite;
       }
@@ -393,7 +393,7 @@
 
       .floating-gif {
         position: fixed;
-        width: 80px;
+        width: clamp(40px, 8vw, 80px);
         height: auto;
         pointer-events: none;
         z-index: 50;
@@ -505,14 +505,14 @@
       }
 
       .page-3 h1 {
-        font-size: 3rem;
+        font-size: clamp(1.5rem, 5vw, 3rem);
         margin-bottom: 2rem;
         font-weight: 500;
       }
 
       .timer-container {
         margin: 3rem 0;
-        padding: 2rem;
+        padding: clamp(1rem, 3vw, 2rem);
         background: rgba(255, 255, 255, 0.05);
         border-radius: 15px;
         backdrop-filter: blur(10px);
@@ -521,7 +521,7 @@
       .timer-display {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        gap: clamp(0.5rem, 3vw, 2rem);
         flex-wrap: wrap;
         margin-bottom: 1.5rem;
       }
@@ -533,14 +533,14 @@
       }
 
       .time-value {
-        font-size: 3rem;
+        font-size: clamp(2rem, 6vw, 3rem);
         font-weight: 600;
         color: #fff;
         text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
       }
 
       .time-label {
-        font-size: 0.9rem;
+        font-size: clamp(0.7rem, 1.5vw, 0.9rem);
         text-transform: uppercase;
         letter-spacing: 2px;
         color: rgba(255, 255, 255, 0.7);
@@ -548,10 +548,11 @@
       }
 
       .romantic-text {
-        font-size: 1.2rem;
-        text-align: left;
+        font-size: clamp(0.9rem, 2vw, 1.2rem);
+        text-align: center;
         line-height: 1.8;
-        max-width: 80%;
+        max-width: 90%;
+        margin: 0 auto;
         font-weight: 400;
       }
 
@@ -561,8 +562,37 @@
       }
 
       .page-3 > p {
-        font-size: 1.2rem;
+        font-size: clamp(0.9rem, 2vw, 1.2rem);
         color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        .page {
+          padding: 30px 20px;
+        }
+
+        .page-1 h1 {
+          transform: scale(1.2, 1.8);
+        }
+
+        .page-2,
+        .page-3 {
+          padding: 30px 20px;
+        }
+
+        .page-2 p {
+          max-width: 95%;
+        }
+
+        .click-hint {
+          font-size: 0.9rem;
+          bottom: 30px;
+        }
+
+        .floating-gif {
+          opacity: 0.5;
+        }
       }
     </style>
   </head>
